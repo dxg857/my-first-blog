@@ -5,7 +5,7 @@ __pycache__
 db.sqlite3
 /static
 .DS_Store
-venv
-.idea
-templates
-.gitignore
+myvenv
+/.idea/
+/venv/
+/templates/
