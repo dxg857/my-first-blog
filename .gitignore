@@ -3,7 +3,7 @@
 /.vscode
 __pycache__
 db.sqlite3
-/blog/static
+/static
 .DS_Store
 myvenv
 /.idea
