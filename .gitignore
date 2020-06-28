@@ -6,5 +6,6 @@ db.sqlite3
 /static
 .DS_Store
 myvenv
-/.idea
-/venv
+.gitignore
+.idea
+venv
