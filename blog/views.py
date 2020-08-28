@@ -61,7 +61,3 @@ def about(request):
 
 def blog_post(request):
     return render(request, 'devBlog/blog-post.html')
-
-
-def blog_list(request):
-    return render(request, 'devBlog/blog-list.html')
