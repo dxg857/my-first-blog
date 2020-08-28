@@ -14,7 +14,7 @@ def post_list(request):
 
 def post_detail(request, pk):
     post = get_object_or_404(Post, pk=pk)
-    return render(request, 'blog/post_detail.html', {'post': post})
+    return render(request, 'devBlog/blog-post.html', {'post': post})
 
 
 def post_new(request):
@@ -23,12 +23,11 @@ def post_new(request):
         if form.is_valid():
             post = form.save(commit=False)
             post.author = request.user
-            post.published_date = timezone.now()
-            post.save()
-            return redirect('post_detail', pk=post.pk)
+            post.publish()
+            return redirect('home_page')
     else:
         form = PostForm()
-    return render(request, 'blog/post_edit.html', {'form': form})
+    return render(request, 'devBlog/post_edit.html', {'form': form})
 
 
 def post_edit(request, pk):
@@ -38,9 +37,31 @@ def post_edit(request, pk):
         if form.is_valid():
             post = form.save(commit=False)
             post.author = request.user
-            post.published_date = timezone.now()
-            post.save()
+            post.publish()
             return redirect('post_detail', pk=post.pk)
     else:
         form = PostForm(instance=post)
-    return render(request, 'blog/post_edit.html', {'form': form})
+    return render(request, 'devBlog/post_edit.html', {'form': form})
+
+
+def post_delete(request, pk):
+    post = get_object_or_404(Post, pk=pk)
+    post.delete()
+    return redirect('home_page')
+
+
+def home_page(request):
+    posts = Post.objects.filter(published_date__lte=timezone.now()).order_by('published_date')
+    return render(request, 'devBlog/home.html', {'posts': posts})
+
+
+def about(request):
+    return render(request, 'devBlog/about.html')
+
+
+def blog_post(request):
+    return render(request, 'devBlog/blog-post.html')
+
+
+def blog_list(request):
+    return render(request, 'devBlog/blog-list.html')

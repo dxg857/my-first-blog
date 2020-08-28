@@ -1,0 +1,13 @@
+{% extends 'devBlog/base.html' %}
+
+{% block headExtras %}{% endblock %}
+
+{% block bodyExtras %}
+    <div style="padding-left: 20px; padding-top: 10px; padding-bottom: 500px;">
+        <h2 style="padding: 10px;">Post</h2>
+        <form method="post" class="post-form">{% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit" class="save btn btn-primary" style="float: left">Save</button>
+        </form>
+    </div>
+{% endblock %}
