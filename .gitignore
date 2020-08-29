@@ -8,3 +8,4 @@ myvenv
 .gitignore
 .idea
 venv
+blog/geckodriver.log
