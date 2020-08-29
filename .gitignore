@@ -7,4 +7,5 @@ db.sqlite3
 myvenv
 venv
 blog/geckodriver.log
+geckodriver.log
 /.idea/
