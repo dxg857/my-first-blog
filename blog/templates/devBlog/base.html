@@ -67,7 +67,8 @@
 
                     <div class="add_post">
                         {% if user.is_authenticated %}
-                            <a href="{% url 'post_new' %}" class="top-menu"><span class="btn btn-dark">Add Post
+                            <a href="{% url 'post_new' %}" class="top-menu"><span class="btn btn-dark"
+                                                                                  id="add_post_button">Add Post
                             </span></a>
                         {% endif %}
                     </div>
