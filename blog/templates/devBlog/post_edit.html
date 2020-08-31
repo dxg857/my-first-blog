@@ -1,7 +1,11 @@
 {% extends 'devBlog/base.html' %}
 
 {% block headExtras %}
-    <title>New Post</title>
+    {% if new_post %}
+        <title>New Post</title>
+    {% else %}
+        <title>Edit Post</title>
+    {% endif %}
 {% endblock %}
 
 {% block headerCurrentTab %}
@@ -19,8 +23,16 @@
 {% endblock %}
 
 {% block bodyExtras %}
+    <div id="cv_header" class="container-fluid" style="background-color: #abb9f6; text-align: center; padding: 30px">
+        <h2>Post Factory</h2>
+        <hr style="border-top:1px solid #000; width: 50%"/>
+        {% if new_post %}
+            <h5>New Post</h5>
+        {% else %}
+            <h5>Edit Post</h5>
+        {% endif %}
+    </div>
     <div style="padding-left: 20px; padding-top: 10px; padding-bottom: 500px;">
-        <h2 style="padding: 10px;">Post</h2>
         <form method="post" class="post-form">{% csrf_token %}
             {{ form.as_p }}
             <button type="submit" class="save btn btn-primary" style="float: left" id="save_btn">Save</button>

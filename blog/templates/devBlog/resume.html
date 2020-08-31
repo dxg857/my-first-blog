@@ -140,25 +140,40 @@
         }
     </style>
 
-    <div id="cv_header" class="container-fluid" style="background-color: #abb9f6">
-        <div class="row">
-            <div class="column1">
-                <p><b>Address:</b> 82A Raddlebarn Rd, Birmingham, B29 6HH</p>
-                <p><b>Phone:</b> 07500801772</p>
-                <p><b>Email:</b> d.gudauskas1@gmail.com</p>
-            </div>
-            <div class="column2">
-                <h2>Dominykas Gudauskas</h2>
-                <hr style="height:1px;border-top:1px solid #000"/>
-                <h5>Computer Science Student</h5>
-            </div>
+    <div id="cv_header" class="container-fluid" style="background-color: #abb9f6; text-align: center; padding: 30px">
+        <h2>Dominykas Gudauskas</h2>
+        <hr style="border-top:1px solid #000; width: 50%"/>
+        <h5>Computer Science Student</h5>
+        <div class="container-fluid">
+            {% if user.is_authenticated %}
+                <nav class="blog-nav nav nav-justified my-5" style="padding-right: 25%; padding-left: 25%">
+                    <a class="nav-item nav-link rounded" href="{% url 'resume_new' %}">Add</a>
+                </nav>
+            {% endif %}
         </div>
     </div>
 
+
     <div class="container-fluid" style="padding: 30px 100px 30px 30px;">
-        <div class="row">
+        {% for tab in tabs %}
+            <div class="row">
+                <div class="column11">
+                    <a style="font-size: x-large" {% if user.is_authenticated %} href="{% url 'resume_edit' pk=tab.pk %}"
+                    {% endif %}>{{ tab.title }}</a>
+                </div>
+                <div class="column22" style="height: 30px;border-bottom:4px solid #000;border-right:30px solid #000;"></div>
+            </div>
+            <div class="row">
+                <div class="column11"></div>
+                <div class="column22">
+                    <p> {{ tab.description }} </p>
+                </div>
+            </div>
+        {% endfor %}
+        {% comment %}<div class="row">
             <div class="column11">
-                <a style="font-size: x-large" {% if user.is_authenticated %} href="#" {% endif %}>Profile</a>
+                <a style="font-size: x-large" {% if user.is_authenticated %} href="{% url 'resume_edit' pk=tab.pk %}"
+                {% endif %}>Profile</a>
             </div>
             <div class="column22" style="height: 30px;border-bottom:4px solid #000;border-right:30px solid #000;"></div>
         </div>
@@ -171,7 +186,9 @@
                     explore interests in software development and fintech.
                 </p>
             </div>
-        </div>
+        </div>{% endcomment %}
     </div>
+
+
 
 {% endblock %}

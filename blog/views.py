@@ -1,8 +1,8 @@
 # Create your views here.
 from django.utils import timezone
-from .models import Post
+from .models import Post, Tab
 from django.shortcuts import render, get_object_or_404, redirect
-from .forms import PostForm
+from .forms import PostForm, TabForm
 
 
 def post_detail(request, pk):
@@ -20,7 +20,7 @@ def post_new(request):
             return redirect('home_page')
     else:
         form = PostForm()
-    return render(request, 'devBlog/post_edit.html', {'form': form})
+    return render(request, 'devBlog/post_edit.html', {'form': form, 'new_post': True})
 
 
 def post_edit(request, pk):
@@ -34,7 +34,7 @@ def post_edit(request, pk):
             return redirect('post_detail', pk=post.pk)
     else:
         form = PostForm(instance=post)
-    return render(request, 'devBlog/post_edit.html', {'form': form})
+    return render(request, 'devBlog/post_edit.html', {'form': form, 'new_post': False})
 
 
 def post_delete(request, pk):
@@ -61,4 +61,32 @@ def about(request):
 
 
 def resume(request):
-    return render(request, 'devBlog/resume.html')
+    tabs = Tab.objects.filter(published_date__lte=timezone.now()).order_by('published_date')
+    return render(request, 'devBlog/resume.html', {'tabs': tabs})
+
+
+def resume_new(request):
+    if request.method == "POST":
+        form = TabForm(request.POST)
+        if form.is_valid():
+            tab = form.save(commit=False)
+            tab.author = request.user
+            tab.publish()
+            return redirect('resume')
+    else:
+        form = TabForm()
+    return render(request, 'devBlog/resume_edit.html', {'form': form, 'new_tab': True})
+
+
+def resume_edit(request, pk):
+    tab = get_object_or_404(Tab, pk=pk)
+    if request.method == "POST":
+        form = TabForm(request.POST, instance=tab)
+        if form.is_valid():
+            tab = form.save(commit=False)
+            tab.author = request.user
+            tab.publish()
+            return redirect('resume')
+    else:
+        form = TabForm(instance=tab)
+    return render(request, 'devBlog/resume_edit.html', {'form': form, 'new_tab': False})
