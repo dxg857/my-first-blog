@@ -14,7 +14,7 @@
             <a class="nav-link" href="/about"><i class="fas fa-user fa-fw mr-2"></i>About Me</a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" href="/cv"><i class="fas fa-book fa-fw mr-2"></i>Resume</a>
+            <a class="nav-link" href="/resume"><i class="fas fa-book fa-fw mr-2"></i>Resume</a>
         </li>
     </ul>
 {% endblock %}
@@ -28,7 +28,8 @@
                         <img class="mr-3 img-fluid post-thumb d-none d-md-flex"
                              src="/static/assets/images/blog/post-point.png" alt="image">
                         <div class="media-body">
-                            <h3 class="title mb-1"><a href="{% url 'post_detail' pk=post.pk %}"
+                            <h3 class="title mb-1" style="font-family: 'Segoe UI', -apple-system, sans-serif"><a
+                                    href="{% url 'post_detail' pk=post.pk %}"
                                                       id="post_title">{{ post.title }}</a></h3>
                             <div class="meta mb-1"><span class="date">Published: {{ post.published_date }}</span></div>
                             <div class="intro"

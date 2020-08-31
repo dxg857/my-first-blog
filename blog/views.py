@@ -60,5 +60,5 @@ def about(request):
     return render(request, 'devBlog/about.html')
 
 
-def cv(request):
-    return render(request, 'devBlog/cv.html')
+def resume(request):
+    return render(request, 'devBlog/resume.html')

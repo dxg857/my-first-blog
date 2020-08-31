@@ -13,14 +13,14 @@
             <a class="nav-link" href="/about"><i class="fas fa-user fa-fw mr-2"></i>About Me</a>
         </li>
         <li class="nav-item active">
-            <a class="nav-link" href="/cv"><i class="fas fa-book fa-fw mr-2"></i>Resume<span
+            <a class="nav-link" href="/resume"><i class="fas fa-book fa-fw mr-2"></i>Resume<span
                     class="sr-only">(current)</span></a>
         </li>
     </ul>
 {% endblock %}
 
 {% block bodyExtras %}
-     <div class="container">
+    {% comment %}<div class="container">
          <h3 class="mt-5 mb-3">Typography</h3>
          <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor.
              Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur
@@ -97,5 +97,81 @@
                      allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
                      allowfullscreen></iframe>
          </div>
-     </div>
+     </div>{% endcomment %}
+
+    <style>
+        p {
+            color: #000
+        }
+
+        h1, h2, h3, h4 {
+            font-family: "Segoe UI", -apple-system, sans-serif;
+        }
+
+        .column1 {
+            width: 50%;
+            padding: 30px;
+            text-align: left;
+        }
+
+        .column2 {
+            width: 50%;
+            padding: 30px;
+            text-align: center;
+        }
+
+        .column11 {
+            width: 30%;
+            padding-left: 30px;
+            padding-right: 30px;
+            text-align: right;
+        }
+
+        .column22 {
+            width: 70%;
+            padding-right: 30px;
+            text-align: left;
+        }
+
+        .row:after {
+            content: "";
+            display: table;
+            clear: both;
+        }
+    </style>
+
+    <div id="cv_header" class="container-fluid" style="background-color: #abb9f6">
+        <div class="row">
+            <div class="column1">
+                <p><b>Address:</b> 82A Raddlebarn Rd, Birmingham, B29 6HH</p>
+                <p><b>Phone:</b> 07500801772</p>
+                <p><b>Email:</b> d.gudauskas1@gmail.com</p>
+            </div>
+            <div class="column2">
+                <h2>Dominykas Gudauskas</h2>
+                <hr style="height:1px;border-top:1px solid #000"/>
+                <h5>Computer Science Student</h5>
+            </div>
+        </div>
+    </div>
+
+    <div class="container-fluid" style="padding: 30px 100px 30px 30px;">
+        <div class="row">
+            <div class="column11">
+                <p style="font-size: x-large">Profile</p>
+            </div>
+            <div class="column22" style="height: 30px;border-bottom:4px solid #000;border-right:30px solid #000;"></div>
+        </div>
+        <div class="row">
+            <div class="column11"></div>
+            <div class="column22">
+                <p> A 3<sup>rd</sup> year Computer Science student at the University of Birmingham, currently working
+                    towards a BSc (Hons) (1st). Have intermediate experience with coding in a few programming
+                    languages. Excited to
+                    explore interests in software development and fintech.
+                </p>
+            </div>
+        </div>
+    </div>
+
 {% endblock %}

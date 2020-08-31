@@ -6,6 +6,20 @@
           href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.14.2/styles/monokai-sublime.min.css">
 {% endblock %}
 
+{% block headerCurrentTab %}
+    <ul class="navbar-nav flex-column text-left">
+        <li class="nav-item">
+            <a class="nav-link" href="/home"><i class="fas fa-home fa-fw mr-2"></i>Blog Home</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="/about"><i class="fas fa-user fa-fw mr-2"></i>About Me</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="/resume"><i class="fas fa-book fa-fw mr-2"></i>Resume</a>
+        </li>
+    </ul>
+{% endblock %}
+
 {% block bodyExtras %}
     <article class="blog-post px-3 py-5 p-md-5">
         <div class="container">
