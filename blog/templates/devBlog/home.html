@@ -1,6 +1,23 @@
 {% extends 'devBlog/base.html' %}
 
-{% block headExtras %}{% endblock %}
+{% block headExtras %}
+    <title>Beep Boop Dom</title>
+{% endblock %}
+
+{% block headerCurrentTab %}
+    <ul class="navbar-nav flex-column text-left">
+        <li class="nav-item active">
+            <a class="nav-link" href="/home"><i class="fas fa-home fa-fw mr-2"></i>Blog Home<span
+                    class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="/about"><i class="fas fa-user fa-fw mr-2"></i>About Me</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="/cv"><i class="fas fa-book fa-fw mr-2"></i>Resume</a>
+        </li>
+    </ul>
+{% endblock %}
 
 {% block bodyExtras %}
     <section class="blog-list px-3 py-5 p-md-5">
