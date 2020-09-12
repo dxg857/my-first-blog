@@ -8,3 +8,4 @@ myvenv
 blog/geckodriver.log
 geckodriver.log
 /.idea/
+/venv/
