@@ -23,6 +23,9 @@
 {% endblock %}
 
 {% block bodyExtras %}
+    <link rel="stylesheet" type="text/css" href="/static/assets/trix/trix.css">
+    <script type="text/javascript" src="/static/assets/trix/trix.js"></script>
+
     <div id="cv_header" class="container-fluid" style="background-color: #abb9f6; text-align: center; padding: 30px">
         <h2>Post Factory</h2>
         <hr style="border-top:1px solid #000; width: 50%"/>
@@ -32,10 +35,19 @@
             <h5>Edit Post</h5>
         {% endif %}
     </div>
-    <div style="padding-left: 20px; padding-top: 10px; padding-bottom: 500px;">
-        <form method="post" class="post-form">{% csrf_token %}
-            {{ form.as_p }}
-            <button type="submit" class="save btn btn-primary" style="float: left" id="save_btn">Save</button>
+
+    <div style="padding-left: 20px; padding-top: 10px; padding-bottom: 500px; width: 80%">
+        <form method="post" class="post-form" style="width: 80%">{% csrf_token %}
+            <label for="id_title">Title:</label>
+            <p> <input type="text" name="title" maxlength="20" id="id_title" value={{ title }}></p>
+
+            <label for="id_text">Description:</label>
+            <input id="id_text" value="{{ text }}" type="hidden" name="text">
+            <trix-editor input="id_text"></trix-editor>
+
+            <button type="submit" class="save btn btn-primary" style="float: right" id="save_btn">Save</button>
         </form>
     </div>
+
+
 {% endblock %}

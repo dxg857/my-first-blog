@@ -54,7 +54,8 @@
                         Programming T-shirts)</a></figcaption>
                 </figure>{% endcomment %}
 
-                <p>{{ post.text|linebreaksbr }}</p>
+                {% autoescape off %}{{ post.text|linebreaksbr }}{% endautoescape %}
+{#                <p>{{ post.text|linebreaksbr }}</p>#}
 
                 {% comment %} <h3 class="mt-5 mb-3">Typography</h3>
                 <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor.

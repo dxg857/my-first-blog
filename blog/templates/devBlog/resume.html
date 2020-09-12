@@ -20,85 +20,6 @@
 {% endblock %}
 
 {% block bodyExtras %}
-    {% comment %}<div class="container">
-         <h3 class="mt-5 mb-3">Typography</h3>
-         <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor.
-             Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur
-             ridiculus mus.</p>
-         <h5 class="my-3">Bullet Points:</h5>
-         <ul class="mb-5">
-             <li class="mb-2">Lorem ipsum dolor sit amet consectetuer.</li>
-             <li class="mb-2">Aenean commodo ligula eget dolor.</li>
-             <li class="mb-2">Aenean massa cum sociis natoque penatibus.</li>
-         </ul>
-         <ol class="mb-5">
-             <li class="mb-2">Lorem ipsum dolor sit amet consectetuer.</li>
-             <li class="mb-2">Aenean commodo ligula eget dolor.</li>
-             <li class="mb-2">Aenean massa cum sociis natoque penatibus.</li>
-         </ol>
-         <h5 class="my-3">Quote Example:</h5>
-         <blockquote class="blockquote m-lg-5 py-3 pl-4 px-lg-5">
-             <p class="mb-2">You might not think that programmers are artists, but programming is an
-                 extremely creative profession. It's logic-based creativity.</p>
-             <footer class="blockquote-footer">John Romero</footer>
-         </blockquote>
-
-         <h5 class="my-3">Table Example:</h5>
-         <table class="table table-striped my-5">
-             <thead>
-                 <tr>
-                     <th scope="col">#</th>
-                     <th scope="col">First</th>
-                     <th scope="col">Last</th>
-                     <th scope="col">Handle</th>
-                 </tr>
-             </thead>
-             <tbody>
-                 <tr>
-                     <th scope="row">1</th>
-                     <td>Mark</td>
-                     <td>Otto</td>
-                     <td>@mdo</td>
-                 </tr>
-                 <tr>
-                     <th scope="row">2</th>
-                     <td>Jacob</td>
-                     <td>Thornton</td>
-                     <td>@fat</td>
-                 </tr>
-                 <tr>
-                     <th scope="row">3</th>
-                     <td>Larry</td>
-                     <td>the Bird</td>
-                     <td>@twitter</td>
-                 </tr>
-             </tbody>
-         </table>
-
-         <h5 class="mb-3">Embed A Tweet:</h5>
-
-         <blockquote class="twitter-tweet" data-lang="en"><p lang="en" dir="ltr">1969:<br>-what&#39;re
-             you doing with that 2KB of RAM?<br>-sending people to the moon<br><br>2017:<br>-what&#39;re
-             you doing with that 1.5GB of RAM?<br>-running Slack</p>&mdash; I Am Devloper (@iamdevloper)
-             <a href="https://twitter.com/iamdevloper/status/926458505355235328?ref_src=twsrc%5Etfw">November
-                 3, 2017</a></blockquote>
-         <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
-
-
-         <h3 class="mt-5 mb-3">Video Example</h3>
-         <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor.
-             Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur
-             ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla
-             consequat massa quis enim. </p>
-
-         <div class="embed-responsive embed-responsive-16by9">
-             <iframe width="560" height="315" src="https://www.youtube.com/embed/hnCmSXCZEpU"
-                     frameborder="0"
-                     allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
-                     allowfullscreen></iframe>
-         </div>
-     </div>{% endcomment %}
-
     <style>
         p {
             color: #000
@@ -153,42 +74,24 @@
         </div>
     </div>
 
-
     <div class="container-fluid" style="padding: 30px 100px 30px 30px;">
         {% for tab in tabs %}
             <div class="row">
                 <div class="column11">
-                    <a style="font-size: x-large" {% if user.is_authenticated %} href="{% url 'resume_edit' pk=tab.pk %}"
+                    <a style="font-size: x-large" {% if user.is_authenticated %}
+                       href="{% url 'resume_edit' pk=tab.pk %}"
                     {% endif %}>{{ tab.title }}</a>
                 </div>
-                <div class="column22" style="height: 30px;border-bottom:4px solid #000;border-right:30px solid #000;"></div>
+                <div class="column22"
+                     style="height: 30px;border-bottom:4px solid #000;border-right:30px solid #000;"></div>
             </div>
             <div class="row">
                 <div class="column11"></div>
                 <div class="column22">
-                    <p> {{ tab.description }} </p>
+                    {% autoescape off %}{{ tab.description }}{% endautoescape %}
                 </div>
             </div>
         {% endfor %}
-        {% comment %}<div class="row">
-            <div class="column11">
-                <a style="font-size: x-large" {% if user.is_authenticated %} href="{% url 'resume_edit' pk=tab.pk %}"
-                {% endif %}>Profile</a>
-            </div>
-            <div class="column22" style="height: 30px;border-bottom:4px solid #000;border-right:30px solid #000;"></div>
-        </div>
-        <div class="row">
-            <div class="column11"></div>
-            <div class="column22">
-                <p> A 3<sup>rd</sup> year Computer Science student at the University of Birmingham, currently working
-                    towards a BSc (Hons) (1st). Have intermediate experience with coding in a few programming
-                    languages. Excited to
-                    explore interests in software development and fintech.
-                </p>
-            </div>
-        </div>{% endcomment %}
     </div>
-
-
 
 {% endblock %}

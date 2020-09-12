@@ -34,7 +34,7 @@
                             <div class="meta mb-1"><span class="date">Published: {{ post.published_date }}</span></div>
                             <div class="intro"
                                  style="display: -webkit-box;-webkit-line-clamp: 3;-webkit-box-orient: vertical;overflow:
-                              hidden;text-overflow: ellipsis;">{{ post.text }}</div>
+                              hidden;text-overflow: ellipsis;">{% autoescape off %}{{ post.text }}{% endautoescape %}</div>
                             <a class="more-link" href="{% url 'post_detail' pk=post.pk %}">Read more &rarr;</a>
                         </div><!--//media-body-->
                     </div><!--//media-->
