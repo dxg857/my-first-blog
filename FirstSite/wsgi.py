@@ -8,13 +8,8 @@ https://docs.djangoproject.com/en/3.0/howto/deployment/wsgi/
 """
 
 import os
-import sys
 
 from django.core.wsgi import get_wsgi_application
-
-current_path = os.path.abspath('.')
-parent_path = os.path.dirname(current_path)
-sys.path.append(parent_path)
 
 os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'FirstSite.settings')
 
