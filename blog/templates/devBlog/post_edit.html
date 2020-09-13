@@ -45,7 +45,12 @@
             <input id="id_text" value="{{ post.text }}" type="hidden" name="text">
             <trix-editor input="id_text"></trix-editor>
 
-            <button type="submit" class="save btn btn-primary" style="float: right; margin-top: 10px" id="save_btn">Save</button>
+            <div style="float: right; margin-top: 10px">
+                <button type="submit" class="save btn btn-primary" id="save_btn">Save</button>
+                <a href="{% url 'post_delete' pk=post.pk %}" class="btn btn-dark" id="delete_btn"
+                        style="margin-right: 10px">Delete</a>
+            </div>
+
         </form>
     </div>
 

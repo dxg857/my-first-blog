@@ -90,3 +90,9 @@ def resume_edit(request, pk):
     else:
         form = TabForm(instance=tab)
     return render(request, 'devBlog/resume_edit.html', {'form': form, 'new_tab': False, 'tab': tab})
+
+
+def resume_delete(request, pk):
+    tab = get_object_or_404(Tab, pk=pk)
+    tab.delete()
+    return redirect('resume')

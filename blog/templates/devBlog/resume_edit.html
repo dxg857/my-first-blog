@@ -56,8 +56,11 @@
             <input id="id_description" value="{{ tab.description }}" type="hidden" name="description">
             <trix-editor input="id_description"></trix-editor>
 
-            <button type="submit" class="save btn btn-primary" style="float: right; margin-top: 10px"
-                    id="save_btn">Save</button>
+            <div style="float: right; margin-top: 10px">
+                <button type="submit" class="save btn btn-primary" id="save_btn">Save</button>
+                <a href="{% url 'resume_delete' pk=tab.pk %}" class="btn btn-dark" id="delete_btn"
+                   style="margin-right: 10px">Delete</a>
+            </div>
         </form>
     </div>
 

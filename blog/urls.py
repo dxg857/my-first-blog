@@ -8,6 +8,7 @@ urlpatterns = [
     path('resume', views.resume, name='resume'),
     path('resume/<int:pk>/edit', views.resume_edit, name='resume_edit'),
     path('resume/new/', views.resume_new, name='resume_new'),
+    path('tab/<int:pk>/delete', views.resume_delete, name='resume_delete'),
     path('blog-post', views.blog_post),
     path('post/<int:pk>/', views.post_detail, name='post_detail'),
     path('post/new/', views.post_new, name='post_new'),
