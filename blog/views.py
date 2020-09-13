@@ -34,8 +34,7 @@ def post_edit(request, pk):
             return redirect('post_detail', pk=post.pk)
     else:
         form = PostForm(instance=post)
-    return render(request, 'devBlog/post_edit.html', {'form': form, 'new_post': False,
-                                                      'text': post.text, 'title': post.title})
+    return render(request, 'devBlog/post_edit.html', {'form': form, 'new_post': False, 'post': post})
 
 
 def post_delete(request, pk):
@@ -90,5 +89,4 @@ def resume_edit(request, pk):
             return redirect('resume')
     else:
         form = TabForm(instance=tab)
-    return render(request, 'devBlog/resume_edit.html', {'form': form, 'new_tab': False,
-                                                        'description': tab.description, 'title': tab.title})
+    return render(request, 'devBlog/resume_edit.html', {'form': form, 'new_tab': False, 'tab': tab})

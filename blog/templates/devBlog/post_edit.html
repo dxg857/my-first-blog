@@ -39,13 +39,13 @@
     <div style="padding-left: 20px; padding-top: 10px; padding-bottom: 500px; width: 80%">
         <form method="post" class="post-form" style="width: 80%">{% csrf_token %}
             <label for="id_title">Title:</label>
-            <p> <input type="text" name="title" maxlength="20" id="id_title" value={{ title }}></p>
+            <p> <input type="text" name="title" maxlength="20" id="id_title" value={{ post.title }}></p>
 
             <label for="id_text">Description:</label>
-            <input id="id_text" value="{{ text }}" type="hidden" name="text">
+            <input id="id_text" value="{{ post.text }}" type="hidden" name="text">
             <trix-editor input="id_text"></trix-editor>
 
-            <button type="submit" class="save btn btn-primary" style="float: right" id="save_btn">Save</button>
+            <button type="submit" class="save btn btn-primary" style="float: right; margin-top: 10px" id="save_btn">Save</button>
         </form>
     </div>
 
