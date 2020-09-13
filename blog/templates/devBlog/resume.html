@@ -76,19 +76,21 @@
 
     <div class="container-fluid" style="padding: 30px 100px 30px 30px;">
         {% for tab in tabs %}
-            <div class="row">
-                <div class="column11">
-                    <a style="font-size: x-large" {% if user.is_authenticated %}
-                       href="{% url 'resume_edit' pk=tab.pk %}"
-                    {% endif %}>{{ tab.title }}</a>
+            <div id="resume_tab">
+                <div class="row">
+                    <div class="column11">
+                        <a style="font-size: x-large" {% if user.is_authenticated %}
+                           href="{% url 'resume_edit' pk=tab.pk %}"
+                        {% endif %}>{{ tab.title }}</a>
+                    </div>
+                    <div class="column22"
+                         style="height: 30px;border-bottom:4px solid #000;border-right:30px solid #000;"></div>
                 </div>
-                <div class="column22"
-                     style="height: 30px;border-bottom:4px solid #000;border-right:30px solid #000;"></div>
-            </div>
-            <div class="row">
-                <div class="column11"></div>
-                <div class="column22">
-                    {% autoescape off %}{{ tab.description }}{% endautoescape %}
+                <div class="row">
+                    <div class="column11"></div>
+                    <div class="column22">
+                        {% autoescape off %}{{ tab.description }}{% endautoescape %}
+                    </div>
                 </div>
             </div>
         {% endfor %}
