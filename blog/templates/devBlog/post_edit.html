@@ -47,8 +47,10 @@
 
             <div style="float: right; margin-top: 10px">
                 <button type="submit" class="save btn btn-primary" id="save_btn">Save</button>
+                {% if not new_post %}
                 <a href="{% url 'post_delete' pk=post.pk %}" class="btn btn-dark" id="delete_btn"
                         style="margin-right: 10px">Delete</a>
+                {% endif %}
             </div>
 
         </form>
