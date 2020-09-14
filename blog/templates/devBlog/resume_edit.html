@@ -37,16 +37,6 @@
     <link rel="stylesheet" type="text/css" href="/static/assets/trix/trix.css">
     <script type="text/javascript" src="/static/assets/trix/trix.js"></script>
 
-
-
-
-    {% comment %}<div style="padding-left: 20px; padding-top: 10px; padding-bottom: 500px; width: 80%">
-        <form method="post" class="post-form" style="width: 80%">{% csrf_token %}
-            {{ form.as_p }}
-            <button type="submit" class="save btn btn-primary" style="float: left" id="save_btn">Save</button>
-        </form>
-    </div>{% endcomment %}
-
     <div style="padding-left: 20px; padding-top: 10px; padding-bottom: 500px; width: 80%">
         <form method="post" class="post-form" style="width: 80%">{% csrf_token %}
             <label for="id_title">Title:</label>
@@ -65,11 +55,4 @@
             </div>
         </form>
     </div>
-
-
-    {% comment %}<input type="hidden" name="csrfmiddlewaretoken" value="qYseOpVtTqdYMDy4YI8kwzrLshX4Y5P0amduaVOP9DBoKArs0xwrCcUpifolSFTd">
-        <p><label for="id_title">Title:</label> <input type="text" name="title" maxlength="20" required="" id="id_title"></p>
-        <p><label for="id_description">Description:</label> <textarea name="description" cols="40" rows="10" required="" id="id_description"></textarea></p>
-        <button type="submit" class="save btn btn-primary" style="float: left" id="save_btn">Save</button>{% endcomment %}
-
 {% endblock %}

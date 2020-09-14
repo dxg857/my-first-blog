@@ -49,27 +49,6 @@
         }
     </style>
 
-    <script>
-        function onDragOver(ev) {
-            ev.preventDefault();
-        }
-
-        function onDragStart(ev) {
-            ev.dataTransfer.setData("text", ev.target.id);
-            ev.currentTarget.style.backgroundColor = '#CCC';
-        }
-
-        function onDrop(ev) {
-            ev.preventDefault();
-            let id = ev.dataTransfer.getData("text");
-            const draggedTab = document.getElementById(id);
-            const dropTab = ev.target;
-            draggedTab.style.backgroundColor = '#FFF';
-            dropTab.style.backgroundColor = '#FFF';
-            ev.dataTransfer.clearData();
-        }
-    </script>
-
     <div id="cv_header" class="container-fluid" style="background-color: #abb9f6; text-align: center; padding: 30px">
         <h2>Dominykas Gudauskas</h2>
         <hr style="border-top:1px solid #000; width: 50%"/>
@@ -85,8 +64,7 @@
 
     <div class="container-fluid" style="padding: 30px 100px 30px 30px;">
         {% for tab in tabs %}
-            <div id="resume_tab_{{ tab.pk }}" draggable="true" ondragstart="onDragStart(event);" ondragover="onDragOver(event);"
-                 ondrop="onDrop(event);">
+            <div id="resume_tab_{{ tab.pk }}">
                 <div class="row">
                     <div class="column11">
                         <a style="font-size: x-large" {% if user.is_authenticated %}
