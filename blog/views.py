@@ -61,7 +61,7 @@ def about(request):
 
 
 def resume(request):
-    tabs = Tab.objects.filter(published_date__lte=timezone.now()).order_by('published_date')
+    tabs = Tab.objects.filter(published_date__lte=timezone.now()).order_by('pk')
     return render(request, 'devBlog/resume.html', {'tabs': tabs})
 
 
